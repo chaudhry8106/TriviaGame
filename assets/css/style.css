@@ -2,3 +2,20 @@ h1 {
 	font-size: 80px;
 	color: blue;
 }
+
+#quiz {
+	background: lightyellow;
+	margin-top: 40px;
+	margin-bottom: 80px;
+	margin-right: 80px;
+	margin-left: 80px;
+}
+
+.container-fluid {
+	background: url("http://www.psdgraphics.com/file/hockey-ice-background.jpg");
+}
+
+.button {
+	background: lightyellow;
+	margin: 40px;
+}
