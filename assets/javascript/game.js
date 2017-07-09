@@ -1,5 +1,12 @@
-var seconds = 121
+var seconds = 11
 var intervalId;
+var score = 0;
+
+function scoreKeeper() {
+        var scoreper = Math.round(score/numQues*100);
+        $("#quiz").html("<div class='result'>" + "<h2>" + "Score: " + score + "</h2>" +"</div>");
+        $(".result").append("<h2>" + scoreper + "%" + "</h2>");
+      }
 
 
 function timeLeft() {
@@ -9,6 +16,7 @@ function timeLeft() {
 	if (seconds === 0) {
 		alert("Time uP!!");
 		clearInterval(intervalId);
+    scoreKeeper();
 	}
 
 }
@@ -24,24 +32,23 @@ timer();
 
 
 
-    var numQues = 5;
-    var numChoi = 3;
-    var answers = new Array(5);
-        answers[0] = "doesn't like";
-        answers[1] = "don't come";
-        answers[2] = "come";
-        answers[3] = "don't";
-        answers[4] = "doesn't make";
+var numQues = 5;
+var numChoi = 3;
+var answers = new Array(5);
+    answers[0] = "doesn't like";
+    answers[1] = "don't come";
+    answers[2] = "come";
+    answers[3] = "don't";
+    answers[4] = "doesn't make";
 
-          function getScore(form) {
-      
-       var score = 0;
+    
+    function getScore(from) {
       var currElt;
       var currSelection;
-      for (i=0; i<numQues; i++) {
+      for (var i = 0; i<numQues; i++) {
         currElt = i*numChoi;
-        answered=false; 
-        for (j=0; j<numChoi; j++) {
+        answered=false;
+        for (var j = 0; j<numChoi; j++) {
           currSelection = form.elements[currElt + j];
           if (currSelection.checked) {
             answered=true;
@@ -51,15 +58,16 @@ timer();
             }
           }
         }
-        if (answered ===false){alert("Do answer all the questions, Please") ;return false;}
+        if (answered ===false) {
+          alert("Do answer all the questions, Please");
+          return false;
       }
-    
-      var scoreper = Math.round(score/numQues*100);
-      form.percentage.value = scoreper + "%";
-      form.mark.value=score;
-    
-    
     }
+  }
+
+
+    
+
 
 // $("getScore").on("click", scoreper);
 // $("clear").on("click", returnScore);
