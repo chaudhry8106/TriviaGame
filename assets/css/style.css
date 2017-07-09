@@ -3,24 +3,37 @@ h1 {
 	color: blue;
 }
 
-#quiz {
+#timer {
+	/*padding: 5px;*/
+	/*margin: 5px;*/
+	color: red;
+}
+
+.start {
+	padding: 60px;
+	margin: 100px;
+}
+
+.final {
+	padding: 60px;
+	margin: 60px;
+}
+
+.game {
 	background: lightyellow;
-	margin-top: 40px;
+	padding: 100px;
+	margin: 50px;
+	/*margin-top: 40px;
 	margin-bottom: 80px;
 	margin-right: 80px;
-	margin-left: 80px;
+	margin-left: 80px;*/
 }
 
 .container-fluid {
 	background: url("http://www.psdgraphics.com/file/hockey-ice-background.jpg");
 }
 
-.button {
+/*.button {
 	background: lightyellow;
 	margin: 40px;
-}
-
-.result {
-	padding: 100px;
-	margin: 115px;
-}
+}*/

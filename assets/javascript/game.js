@@ -1,11 +1,64 @@
-var seconds = 11
+var seconds = 121
 var intervalId;
 var score = 0;
 
+var questionOne   = "<h4>"+"He -------------------- it."+"</h4>"+
+                    "<blockquote>"+
+                    "<input type='radio' name='q1' value='don't like'>"+" "+"don't like"+" "+
+                    "<input type='radio' name='q1' value='doesn't like'>"+" "+"doesn't like"+" "+
+                    "<input type='radio' name='q1' value='doesn't likes'>"+" "+"doesn't likes"+
+                    "</blockquote>"
+
+var questionTwo   = "<h4>"+"They -------------------- here very often."+"</h4>"+
+                    "<blockquote>"+
+                    "<input type='radio' name='q2' value='don't come'>"+" "+"don't come"+" "+
+                    "<input type='radio' name='q2' value='doesn't come'>"+" "+"doesn't come"+" "+
+                    "<input type='radio' name='q2' value='doesn't comes'>"+" "+"doesn't comes"+
+                    "</blockquote>"
+
+var questionThree = "<h4>"+"John and Mary -------------------- twice a week."+"</h4>"+
+                    "<blockquote>"+
+                    "<input type='radio' name='q3' value='come'>"+" "+"come"+" "+
+                    "<input type='radio' name='q3' value='comes'>"+" "+"comes"+" "+
+                    "<input type='radio' name='q3' value='coming'>"+" "+"coming"+
+                    "</blockquote>"
+
+var questionfour  = "<h4>"+"I -------------------- mind at all."+"</h4>"+
+                    "<blockquote>"+
+                    "<input type='radio' name='q4' value='not'>"+" "+"not"+" "+
+                    "<input type='radio' name='q4' value='isn't'>"+" "+"isn't"+" "+
+                    "<input type='radio' name='q4' value='don't'>"+" "+"don't"+
+                    "</blockquote>"
+
+var questionfive  = "<h4>"+"It -------------------- sense."+"</h4>"+
+                    "<blockquote>"+
+                    "<input type='radio' name='q5' value='don't make'>"+" "+"don't make"+" "+
+                    "<input type='radio' name='q5' value='doesn't makes'>"+" "+"doesn't makes"+" "+
+                    "<input type='radio' name='q5' value='doesn't make'>"+" "+"doesn't make"+
+                    "</blockquote>"
+
+var buttons       = "<div class='row button'>"+
+                    "<input class='btn btn-default btn btn-md' type='button' id='getMyScore' value='Get score'>"+" "+
+                    "<input class='btn btn-default btn btn-md' type='reset' value='Clear'>"+
+                    "</div>"
+
+function quiz() {
+  $(".game").html("<div class='main text-left'>");
+  $(".main").append(questionOne);
+  $(".main").append(questionTwo);
+  $(".main").append(questionThree);
+  $(".main").append(questionfour);
+  $(".main").append(questionfive);
+  $(".main").append(buttons);
+
+
+}
+
 function scoreKeeper() {
         var scoreper = Math.round(score/numQues*100);
-        $("#quiz").html("<div class='result'>" + "<h2>" + "Score: " + score + "</h2>" +"</div>");
-        $(".result").append("<h2>" + scoreper + "%" + "</h2>");
+        $(".game").html("<div class='final'>");
+        $(".final").append("<div class='result'>" + "<h2>" + "Score: " + score + "</h2>" +"</div>");
+        $(".final").append("<h2>" + scoreper + "%" + "</h2>");
       }
 
 
@@ -21,13 +74,32 @@ function timeLeft() {
 
 }
 
-timeLeft();
+function result() {
+  clearInterval(intervalId);
+  scoreKeeper();
+  console.log("testing");
+}
+
+
+
+function startGame() {
+  $("#startGame").on("click", timer);
+  $("#startGame").on("click", timeLeft);
+  $("#startGame").on("click", quiz);
+}
+
+startGame();
 
 function timer() {
       intervalId = setInterval(timeLeft, 1000);
     }
 
-timer();
+function finalScore(argument) {
+  $("#getMyScore").on("click", result);
+}
+
+finalScore();
+
 
 
 
